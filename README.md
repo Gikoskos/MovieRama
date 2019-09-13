@@ -14,6 +14,10 @@ Additionally, you can see more details for each movie, such as trailers, reviews
 * Jest for testing.
 * Webpack for module bundling.
 
+The movie lists use infinite scrolling. If more movies are available, they are appended to the list when the user scrolls to the bottom of the page.
+
+The expanded movie card data (trailers, reviews etc) are cached so they only need to be loaded once (when the user first clicks on the card).
+
 For the movie data, the [TMDB](https://www.themoviedb.org/) API was used. This project was done within 2 days.
 
 ## Build
