@@ -1,0 +1,387 @@
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans&display=swap');
+
+* {
+    font-family: 'Fira Sans', sans-serif;
+}
+
+html, body {
+    height: 100%;
+    margin: auto;
+    max-width: 1414px; /* decided to have a max width for this page */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    background-color: #1f1f1f;
+    align-items: stretch;
+}
+
+
+.wrap-row-container {
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+}
+
+.wrap-column-container {
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    flex-flow: column wrap;
+}
+
+.header-container {
+    position: relative;
+}
+
+.footer-container {
+    display: flex;
+}
+
+.header-container nav {
+    margin: 10px;
+    border: 2px solid #d1eecc;
+    border-radius: 80px;
+    border-right: none;
+    border-bottom: none;
+    display: flex;
+    flex-flow: row wrap;
+    padding-left: 0;
+    justify-content: flex-end;
+    background-image: linear-gradient(to bottom, #2e2e2e, #262626, #232323, #212121, #1f1f1f);
+}
+
+.header-logo {
+    background-image: url("logo_white_small.png");
+    display: flex;
+    flex-grow: 1;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.header-container nav ul {
+    display: flex;
+    flex-flow: row wrap;
+    list-style-type: none;
+}
+
+.header-container nav li {
+    display: flex;
+    margin: 0 30px;
+    justify-content: center;
+}
+
+
+.header-container nav a {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bolder;
+    padding: 30px 40px;
+    border-bottom: 3px solid #57a99a;
+    color: #a3beb9;
+    border-radius: 50px;
+    transition: border 0.2s, margin 0.2s;
+}
+
+.header-container nav a:hover {
+    text-shadow: 1px 1px 10px #76dbd1;
+}
+
+.header-container nav a:active {
+    text-shadow: 1px 1px 10px #d1eecc;
+    border-bottom-width: 1px;
+    margin-top: 1px;
+}
+
+@media screen and (min-width: 1395px) {
+    .header-container nav ul {
+        justify-content: center;
+    }
+
+    .header-container nav li {
+        margin: 0 100px;
+    }
+}
+
+@media screen and (max-width: 814px) {
+    .header-container nav ul {
+        flex-direction: column;
+    }
+
+    .header-container nav a {
+        animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+        border: none;
+    }
+
+    .header-container nav a:active {
+        margin: unset;
+    }
+}
+
+@media screen and (max-width: 608px) {
+    .header-logo {
+        background-size: 150px;
+    }
+
+    .header-container nav a {
+        font-size: 14px;
+        padding: 20px 30px;
+    }
+}
+
+
+.main-container {
+    display: flex;
+    height: 100%;
+    overflow: auto;
+    justify-content: center;
+}
+
+
+/* movie card styles */
+.movie-card-container {
+    margin: 20px;
+    background-color: rgb(236, 236, 236);
+    box-shadow: 0 0 6px 0 rgb(207, 207, 207);
+    border-radius: 30px;
+    padding: 15px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+}
+
+.movie-card-container:hover {
+    box-shadow: 0 0 18px 0 rgb(207, 207, 207);
+}
+
+.movie-card-title {
+    font-size: 22px;
+    width: 150px;
+    text-align: center;
+}
+
+.movie-card-genre-wrapper {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.movie-card-genre {
+    font-size: 12px;
+    border: 2px groove  #57a99a;
+    padding: 4px;
+    border-radius: 10px;
+}
+
+.movie-card-header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+}
+
+.movie-card-year, .movie-card-vote-average {
+    margin: 0 20px;
+    font-size: 14px;
+    align-self: center;
+}
+
+.movie-card-vote-average::after {
+    content: "/10";
+}
+
+
+.movie-card-content-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.movie-card-overview {
+    max-width: 200px;
+    margin-left: 20px;
+    font-size: 14px;
+    text-align: justify;
+    word-wrap: break-word;
+    /* hyphens: auto; */
+    align-self: center;
+}
+
+
+.movie-card-poster {
+    width: 150px;
+    height: 225px;
+    align-self: center;
+    border-radius: 3px;
+    box-shadow: 1px 1px 10px black;
+}
+
+.movie-card-expanded-reviews {
+
+}
+
+.movie-card-expanded-wrapper {
+    margin-left: 30px;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    animation: animate-width 0.2s linear;
+}
+
+.movie-card-expanded-video {
+    width: 500px;
+    height: 250px;
+}
+
+.movie-card-expanded-similar {
+    max-width: 800px;
+}
+
+.movie-card-expanded-reviews {
+    max-width: 800px;
+}
+
+.movie-card-expanded-similar-header {
+}
+
+.movie-card-expanded-similar-list, .movie-card-expanded-reviews-list {
+    height: 150px;
+    font-size: 12px;
+    overflow: scroll;
+}
+
+.movie-card-expanded-similar-list-item, .movie-card-expanded-reviews-list-item {
+    margin: 3px;
+}
+
+
+@keyframes animate-width {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}
+
+
+
+.search-page {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-bar-wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 40px 0;
+}
+
+.search-bar {
+    border: none;
+    background-color: inherit;
+    color: #a3beb9;
+    font-size: 32px;
+    border-bottom: 2px solid #57a99a;
+    outline: none;
+}
+
+.search-bar:hover {
+    border-bottom-color: #64cab7;
+}
+
+.search-bar:active, .search-bar:focus {
+    border-bottom-color: #97ebdb;
+}
+
+
+/*****************************************/
+.slide-in-left {
+	animation: slide-in-left 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.blur-focus-in {
+    animation: text-focus-in 0.6s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+.invisible {
+    display: none;
+}
+
+
+/* ----------------------------------------------
+ * Generated by Animista on 2019-9-4 15:16:14
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation tracking-in-expand
+ * ----------------------------------------
+ */
+ @keyframes tracking-in-expand {
+    0% {
+        letter-spacing: -0.5em;
+        opacity: 0;
+    }
+    40% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+  
+  /* ----------------------------------------------
+ * Generated by Animista on 2019-9-4 15:19:14
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation text-focus-in
+ * ----------------------------------------
+ */
+@keyframes text-focus-in {
+    0% {
+        filter: blur(12px);
+        opacity: 0;
+    }
+    100% {
+        filter: blur(0px);
+        opacity: 1;
+    }
+}
+  
+/* ----------------------------------------------
+ * Generated by Animista on 2019-9-8 13:13:30
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation slide-in-left
+ * ----------------------------------------
+ */
+ @keyframes slide-in-left {
+    0% {
+      transform: translateX(-1000px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
